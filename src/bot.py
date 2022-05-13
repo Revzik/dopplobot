@@ -4,7 +4,9 @@ import dotenv
 
 dotenv.load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
-
+if TOKEN is None:
+    print('Error: DISCORD_TOKEN cannot be null')
+    exit(1)
 
 intents = discord.Intents.default()
 intents.members = True

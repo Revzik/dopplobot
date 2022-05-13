@@ -4,22 +4,16 @@ import dotenv
 
 dotenv.load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
+if TOKEN is None:
+    print("Error: DISCORD_TOKEN cannot be null")
+    exit(1)
 
-
-intents = discord.Intents.default()
-intents.members = True
-client = discord.Client(intents=intents)
+client = discord.Client()
 
 
 @client.event
 async def on_ready():
     print(f"{client.user} has connected to Discord!")
-
-    for guild in client.guilds:
-        print(f"Connected guilds: [ id: {guild.id}, name: {guild.name} ]")
-        print("Members:")
-        for member in guild.members:
-            print(f" - {member.name}")
 
 
 @client.event

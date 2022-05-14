@@ -1,5 +1,4 @@
 import os
-import discord
 import dotenv
 
 dotenv.load_dotenv()
@@ -8,21 +7,15 @@ if TOKEN is None:
     print("Error: DISCORD_TOKEN cannot be null")
     exit(1)
 
-client = discord.Client()
+
+from discord.ext import commands
+from config import defaults
+from setup import init
 
 
-@client.event
-async def on_ready():
-    print(f"{client.user} has connected to Discord!")
+bot = commands.Bot(command_prefix=defaults.PREFIX)
+init.initial_setup(bot)
+init.init_commands(bot)
 
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-
-    if message.content == "ping":
-        await message.channel.send("pong")
-
-
-client.run(TOKEN)
+bot.run(TOKEN)

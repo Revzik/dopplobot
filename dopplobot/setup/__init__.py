@@ -1,4 +1,7 @@
-def register_events(bot):
+from discord.ext.commands import Bot
+
+
+def register_events(bot: Bot) -> None:
     from . import events
 
     @bot.event
@@ -6,7 +9,7 @@ def register_events(bot):
         events.connected(bot.user)
 
 
-def init(bot):
+def init(bot: Bot) -> None:
     import commands
 
     register_events(bot)

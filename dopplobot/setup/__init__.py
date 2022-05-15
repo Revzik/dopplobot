@@ -2,6 +2,13 @@ from discord.ext.commands import Bot
 
 
 def register_events(bot: Bot) -> None:
+    """
+    Sets up all the other events handled by the bot.
+
+    Parameters
+    ------------
+        bot :class:`~discord.ext.commands.Bot`: bot object that will register the events
+    """
     from . import events
 
     @bot.event
@@ -10,6 +17,13 @@ def register_events(bot: Bot) -> None:
 
 
 def init(bot: Bot) -> None:
+    """
+    Initializes the ``bot`` object. Takes care of registering events and commands to which the bot can respond
+
+    Parameters
+    ------------
+        bot :class:`~discord.ext.commands.Bot`: bot object to setup
+    """
     import commands
 
     register_events(bot)

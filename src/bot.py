@@ -8,14 +8,15 @@ if TOKEN is None:
     exit(1)
 
 
-from discord.ext import commands
+from discord.ext.commands import Bot
 from config import defaults
-from setup import init
+from setup import register_events
+from commands import register_commands
 
 
-bot = commands.Bot(command_prefix=defaults.PREFIX)
-init.initial_setup(bot)
-init.init_commands(bot)
+bot = Bot(command_prefix=defaults.PREFIX)
+register_events(bot)
+register_commands(bot)
 
 
 bot.run(TOKEN)

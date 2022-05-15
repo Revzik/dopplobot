@@ -1,4 +1,7 @@
-def setup_commands(bot):
+def register_commands(bot):
     from . import utils
-    utils.ping_command(bot)
+    
+    @bot.command(name="ping")
+    async def ping(ctx):
+        await ctx.send(ping())
     

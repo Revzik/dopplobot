@@ -19,7 +19,8 @@ def register_events(bot: Bot) -> None:
 
 def init(bot: Bot) -> None:
     """
-    Initializes the ``bot`` object. Takes care of registering events and commands to which the bot can respond
+    Initializes the ``bot`` object.
+    Takes care of registering events and commands to which the bot can respond
 
     Parameters
     ------------

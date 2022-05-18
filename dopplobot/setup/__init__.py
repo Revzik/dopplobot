@@ -7,7 +7,8 @@ def register_events(bot: Bot) -> None:
 
     Parameters
     ------------
-        bot :class:`~discord.ext.commands.Bot`: bot object that will register the events
+    bot: :class:`~discord.ext.commands.Bot`
+        bot object that will register the events
     """
     from . import events
 
@@ -22,9 +23,10 @@ def init(bot: Bot) -> None:
 
     Parameters
     ------------
-        bot :class:`~discord.ext.commands.Bot`: bot object to setup
+    bot: :class:`~discord.ext.commands.Bot`
+        bot object to initialize
     """
-    import commands
+    from dopplobot import commands
 
     register_events(bot)
     commands.register_commands(bot)

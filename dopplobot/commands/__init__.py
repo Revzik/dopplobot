@@ -7,7 +7,8 @@ def register_commands(bot: Bot) -> None:
 
     Parameters
     ------------
-        bot :class:`~discord.ext.commands.Bot`: bot object that will register the commands
+    bot: :class:`~discord.ext.commands.Bot`
+        bot object that will register the commands
     """
     from . import utils
 
